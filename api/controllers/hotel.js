@@ -93,15 +93,33 @@ export const countByType = async (req, res, next)=>{
     }
 }
 
+// export const getHotelRooms = async (req, res, next) => {
+//     try{
+//         const hotel = await Hotel.findById(req.params.id);
+//         const list = await Promise.all(hotel.rooms.map((room)=>{
+//             return Room.findById(room);                    // mapping the room inside Hotel model to Room model and returning it.
+//         })
+//         );
+//         console.log(list)
+//         res.status(200).json(list);
+//     }catch(err){
+//         next(err);
+//     }
+// }
+
+
 export const getHotelRooms = async (req, res, next) => {
-    try{
+    try {
         const hotel = await Hotel.findById(req.params.id);
-        const list = await Promise.all(hotel.rooms.map((room)=>{
-            return Room.findById(room);                    // mapping the room inside Hotel model to Room model and returning it.
-        })
-        );
-        res.status(200).json(list);
-    }catch(err){
-        next(err);
+        const list = await Promise.all(
+            hotel.rooms.map((room) => {
+                return Room.findById(room);
+            })
+            );
+      console.log(list)
+      res.status(200).json(list)
+    } catch (err) {
+      next(err);
     }
-}
+  };
+  

@@ -53,6 +53,7 @@ app.get("/", (req, res)=>{
 // creating middleware
 
 app.use(cors({origin:"http://localhost:3000",method:"GET"}))
+// app.use(cors)
 
 //to use json - sending by the user in post request
 app.use(express.json())

@@ -40,7 +40,7 @@ export const updateRoom = async (req, res, next) => {
         { "roomNumbers._id": req.params.id },
         {
           $push: {
-            "roomNumbers.$.unavailableDates": req.body.dates
+            "roomNumbers.$.unavailableDates": req.body.dates                // $. because you are updating nested properties
           },
         }
       );
@@ -73,7 +73,7 @@ export const updateRoom = async (req, res, next) => {
       next(err);
     }
   };
-  
+
   export const getRooms = async (req, res, next) => {
     try {
       const rooms = await Room.find();
