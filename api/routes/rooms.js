@@ -7,7 +7,7 @@ const router = express.Router();
 router.post("/:hotelid", verifyAdmin, createRoom);
 
 //UPDATE
-router.put("/availability/:id", updateRoomAvailability);
+router.put("/availability/:id", updateRoomAvailability);           // here id = room number id
 router.put("/:id", verifyAdmin, updateRoom);
 //DELETE
 router.delete("/:id/:hotelid", verifyAdmin, deleteRoom);
