@@ -28,11 +28,11 @@ const Login = () => {
         try{
             const res = await axios.post("/auth/login", credentials);
             console.log(res.data, "type", typeof res.data);
-            dispatch({type:"LOGIN_SUCCESS", payload: res.data.otherDetails })
+            dispatch({type:"LOGIN_SUCCESS", payload: res.data.details })
             navigate("/");
         }
         catch(err){
-            dispatch({type:"LOGIN_FAILURE", payload:err.response.otherDetails});
+            dispatch({type:"LOGIN_FAILURE", payload:err.response.details});
         }
     } 
 

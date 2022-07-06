@@ -41,8 +41,9 @@ export const getUsers = async (req, res, next)=>{
     console.log("User route")
     try{
         const users = await User.find();
-        res.status(200).json(user);
+        res.status(200).json(users);
     }catch(error){
+        console.log("get user controller"+error);
         next(error);
     }
 }

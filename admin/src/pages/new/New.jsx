@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
+  const [info, setInfo] = useState({});
 
   return (
     <div className="new">
