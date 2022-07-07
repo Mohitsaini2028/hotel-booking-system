@@ -49,7 +49,7 @@ export const getHotels = async (req, res, next)=>{
     const {min, max, ...others} = req.query; 
     console.log("hotel route")
     try{
-        const hotels = await Hotel.find({...others, cheapestPrice: {$gte: min || 1 , $lte: max || 999 },}).limit(req.query.limit);
+        const hotels = await Hotel.find({...others, cheapestPrice: {$gte: min || 1 , $lte: max || 1000000 },}).limit(req.query.limit);
                                                                     // if no minimum then 1 value 
         res.status(200).json(hotels);
     }catch(error){
